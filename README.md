@@ -1,17 +1,53 @@
-## About Your Package
+## Laravel Theme Maker
 
-Tell people about your package
+A simple Laravel Theme Maker, enabled developers to create theme skeleton. Developers just need to add the middleware of themer after creating themes.
 
 ## Installation
 
+Run the following command to install the package:
+
 ```
-You installation details here
+composer require cleaniquecoders/themer
+```
+
+## Register
+
+### Themer Service Provider
+
+Register Themer service provider at `config/app.php` in `providers` key:
+
+```php
+Cleaniquecoders\Themer\ThemerServiceProvider::class,
+```
+
+### Themer Middleware
+
+Register Themer middleware at the `app/Http/Kernel.php` in `$routeMiddleware`:
+
+```php
+'theme' => \CleaniqueCoders\Themer\Http\Middleware\ThemeLoader::class,
 ```
 
 ## Usage
 
+### Create a new theme skeleton
+
 ```
-How to use your package?
+php artisan make:theme your-theme-name
+```
+
+### Assign theme via middleware
+
+```php
+Route::get('home','HomeController@index')->middleware('theme:public');
+```
+
+OR 
+
+```php
+Route::group(['middleware' => ['theme:admin']], function(){
+	Auth:routes();
+});
 ```
 
 ## License
