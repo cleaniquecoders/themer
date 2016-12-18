@@ -1,0 +1,20 @@
+{
+    "name": "cleaniquecoders/themer",
+    "description": "Laravel Theme Maker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nasrul Hazim",
+            "email": "nasrulhazim.m@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CleaniqueCoders\\Themer\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/filesystem" : "5.3.*",
+        "illuminate/http" : "5.3.*"
+    }
+}
