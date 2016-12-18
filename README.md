@@ -17,7 +17,7 @@ composer require cleaniquecoders/themer
 Register Themer service provider at `config/app.php` in `providers` key:
 
 ```php
-Cleaniquecoders\Themer\ThemerServiceProvider::class,
+CleaniqueCoders\Themer\ThemerServiceProvider::class,
 ```
 
 ### Themer Middleware
