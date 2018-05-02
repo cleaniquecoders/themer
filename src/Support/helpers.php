@@ -29,6 +29,9 @@ if (! function_exists('theme')) {
             case 'url':
                 return url('themes/' . $path);
                 break;
+            case 'dot':
+                return 'vendor.themes.' . str_replace('/', '.', $path);
+                break;
             default:
                 return public_path('themes/' . $path);
                 break;

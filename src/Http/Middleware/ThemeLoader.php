@@ -33,7 +33,7 @@ class ThemeLoader
             if (file_exists($path)) {
                 return new Response(
                     view(
-                        theme('views', $view_name, $theme),
+                        'vendor.themes.' . $theme . '.' . $view_name,
                         $originalContent->getData()
                     )
                 );
