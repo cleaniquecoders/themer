@@ -1,6 +1,6 @@
 <?php
 
-namespace Cleaniquecoders\Themer;
+namespace CleaniqueCoders\Themer;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -8,30 +8,23 @@ class ThemerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
-        $commands = [];
-
+        /*
+         * Register Commands
+         */
         if ($this->app->runningInConsole()) {
-
-            if ($this->app->environment('local', 'staging')) {
-                $commands[] = \CleaniqueCoders\Themer\Console\Commands\Theme::class;
-            }
-
-            $this->commands($commands);
+            $this->commands([
+                \CleaniqueCoders\Themer\Console\Commands\Theme::class,
+            ]);
         }
     }
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {
-        //
     }
 }
