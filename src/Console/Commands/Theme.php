@@ -33,13 +33,34 @@ class Theme extends GeneratorCommand
      *
      * @return bool|null
      */
-    public function fire()
+    public function handle()
     {
         $name = $this->getNameInput();
-        $this->makeDirectory(resource_path('views/themes'));
-        $this->makeDirectory(resource_path('views/themes/' . $name)); // create theme
-        $this->makeDirectory(resource_path('views/themes/' . $name . '/layouts')); // create theme layouts
-        $this->makeDirectory(resource_path('views/themes/' . $name . '/components')); // create theme layouts
+
+        /*
+         * Creating Public Directories
+         */
+        $this->makeDirectory(theme('public', 'css', $name));
+        $this->makeDirectory(theme('public', 'js', $name));
+        $this->makeDirectory(theme('public', 'fonts', $name));
+        $this->makeDirectory(theme('public', 'images', $name));
+        $this->makeDirectory(theme('public', 'files', $name));
+
+        /*
+         * Creating Resources Assets
+         */
+        $this->makeDirectory(theme('assets', 'css', $name));
+        $this->makeDirectory(theme('assets', 'js', $name));
+        $this->makeDirectory(theme('assets', 'fonts', $name));
+        $this->makeDirectory(theme('assets', 'images', $name));
+        $this->makeDirectory(theme('assets', 'files', $name));
+
+        /*
+         * Creating Blade Views
+         */
+        $this->makeDirectory(theme('views', 'layouts', $name));
+        $this->makeDirectory(theme('views', 'components', $name));
+
         $this->info($this->type . ' created successfully.');
     }
 
@@ -56,18 +77,18 @@ class Theme extends GeneratorCommand
     /**
      * Build the directory for the class if necessary.
      *
-     * @param  string  $path
+     * @param string $path
+     *
      * @return string
      */
     protected function makeDirectory($path)
     {
-        if (!$this->files->exists($path)) {
+        if (! $this->files->exists($path)) {
             $this->files->makeDirectory($path, 0777, true, true);
         }
     }
 
     protected function getStub()
     {
-
     }
 }
