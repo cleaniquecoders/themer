@@ -1,3 +1,7 @@
+
+[![Build Status](https://travis-ci.org/cleaniquecoders/themer.svg?branch=master)](https://travis-ci.org/cleaniquecoders/themer) [![Latest Stable Version](https://poser.pugx.org/cleaniquecoders/themer/v/stable)](https://packagist.org/packages/cleaniquecoders/themer) [![Total Downloads](https://poser.pugx.org/cleaniquecoders/themer/downloads)](https://packagist.org/packages/cleaniquecoders/themer) [![License](https://poser.pugx.org/cleaniquecoders/themer/license)](https://packagist.org/packages/cleaniquecoders/themer)
+
+
 ## Laravel Theme Maker
 
 A simple Laravel Theme Maker, enabled developers to create theme skeleton. Developers just need to add the middleware of themer after creating themes.
