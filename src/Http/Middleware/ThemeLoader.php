@@ -28,15 +28,15 @@ class ThemeLoader
             $view_name = $originalContent->getName();
 
             // path to view name
-            $path = theme('views', str_replace('.', '/', $view_name) . '.blade.php', $theme)
-            
+            $path = theme('views', str_replace('.', '/', $view_name) . '.blade.php', $theme);
+
             if (file_exists($path)) {
-                return (new Response(
+                return new Response(
                     view(
                         theme('views', $view_name, $theme),
                         $originalContent->getData()
                     )
-                ));
+                );
             }
         }
 
